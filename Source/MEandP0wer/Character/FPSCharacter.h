@@ -4,9 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "MEandP0wer/Inventory/InventoryActor.h"
 #include "MEandP0wer/Interactions/UsableActor.h"
-#include "MEandP0wer/Inventory/Item.h"
 #include "FPSCharacter.generated.h"
 
 UCLASS()
@@ -14,8 +12,8 @@ class MEANDP0WER_API AFPSCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory", meta = (AllowPrivateAccess = "true"))
-		class UInventoryComponent* Inventory;
+	//	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory", meta = (AllowPrivateAccess = "true"))
+	//	class UInventoryComponent* Inventory;
 
 public:
 	// Sets default values for this character's properties
@@ -27,8 +25,8 @@ public:
 	UFUNCTION(BlueprintCallable, WithValidation, Server, Reliable, Category = PlayerAbility)
 		virtual void Use();
 
-	UFUNCTION(BlueprintCallable, Category = "Items")
-		void UseItem(class UItem* Item);
+	//UFUNCTION(BlueprintCallable, Category = "Items")
+		//void UseItem(class UItem* Item);
 
 protected:
 	// Called when the game starts or when spawned
@@ -43,9 +41,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	float MaxUseDistance;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	int selectedItem;
-
 	/* True only in first frame when focused on new usable actor. */
 	bool bHasNewFocus;
 
@@ -56,11 +51,9 @@ protected:
 	void HoveringOnInteractable();
 
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<AInventoryActor*> invItems;
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	// TArray<AInventoryActor*> invItems;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool isHoldingHeavy;
 
 public:	
 	// Called every frame
